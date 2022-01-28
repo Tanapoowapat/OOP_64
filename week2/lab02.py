@@ -20,18 +20,12 @@ class Catalog:
         return self.show_book_list
 
     def delete_book(self, delete_obj):
-
-        h = 0
-        for i in self.book_list:
-            if str(delete_obj) in i:
-                self.book_list.pop(h)
-            elif str(delete_obj) in i[1]:
-                self.book_list.pop(h)
-            h += 1
-
+        for i in range(len(self.book_list)):
+            if i+2 > len(self.book_list):
+                break;
+            elif str(delete_obj) in self.book_list[i][0]:
+                self.book_list.pop(i)
         return self.book_list
-
-
 class Book:
 
     isbn_counter = 1
@@ -71,5 +65,5 @@ Catalog.add_catalog(Book_3.item_list)
 # print(Catalog.search_book("Tanapoowapat"))
 
 
-Catalog.delete_book(Book_1.isbn)
+Catalog.delete_book(Book_2.isbn)
 print(Catalog.book_list)
