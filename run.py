@@ -1,15 +1,9 @@
-def a(b):
+mylist = [["Apple","Banana",["Jack","Rose"],"Love"],["Apple","Orange",["Rose"]]]
 
-    def c():
-        print("abc")
-        return b()
+x = "Rose"
 
-    return c
-@a
-
-def display():
-    i += 1
-    print("hee")
-
-i = 0
-display() 
+for i in mylist:
+    if x in i:
+        print(x)
+    elif x in i[2]:
+        print(x)

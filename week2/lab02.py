@@ -20,11 +20,13 @@ class Catalog:
         return self.show_book_list
 
     def delete_book(self, delete_obj):
-        for i in range(len(self.book_list)):
-            if i+2 > len(self.book_list):
-                break;
-            elif str(delete_obj) in self.book_list[i][0]:
-                self.book_list.pop(i)
+        loop = 0
+        for i in self.book_list:
+            if str(delete_obj) in i:
+                self.book_list.pop(loop)
+            elif str(delete_obj) in i[1]:
+                self.book_list.pop(loop)
+            loop += 1
         return self.book_list
 class Book:
 
@@ -62,8 +64,8 @@ Catalog.add_catalog(Book_1.item_list)
 Catalog.add_catalog(Book_2.item_list)
 Catalog.add_catalog(Book_3.item_list)
 
-# print(Catalog.search_book("Tanapoowapat"))
+print(Catalog.search_book("Tanapoowapat"))
 
 
-Catalog.delete_book(Book_2.isbn)
+Catalog.delete_book(Book_1.isbn)
 print(Catalog.book_list)
