@@ -1,9 +1,21 @@
-mylist = [["Apple","Banana",["Jack","Rose"],"Love"],["Apple","Orange",["Rose"]]]
+class Author:
+    def __init__(self, name) -> None:
+        self._name = name
 
-x = "Rose"
+    @property
+    def name(self):
+        return self._name
 
-for i in mylist:
-    if x in i:
-        print(x)
-    elif x in i[2]:
-        print(x)
+    @name.setter
+    def name(self, new_name):
+        if isinstance(new_name, str):
+            self.name = new_name
+        else:
+            return "error"
+
+author_1 = Author("bob")
+print(author_1.name)
+author_1 = "jerry"
+print(author_1)
+author_1 = "james"
+print(author_1)
