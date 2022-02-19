@@ -32,7 +32,6 @@ class Agent:
 
     def add_property(self):
         valid_data = ("house","apartment","rental","purchase")
-
         validate = True
         while validate == True:
             keyword_1 = input('Enter house or apartment : ')

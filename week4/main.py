@@ -14,8 +14,10 @@ def main():
             agent_list.append(agent)
             
         elif command_option == 2:
+            num_counter = 1
             for agent in agent_list:
-                print(agent.name)
+                print(f'No.{num_counter} : {agent.name}')
+                num_counter += 1
             select_agent = input("Select Agent : ").lower()
             for agent in agent_list:
                 if select_agent == agent.name:
