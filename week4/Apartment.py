@@ -6,19 +6,29 @@ class Apartment(Property):
         self.balcony = balcony
         self.laundry = laundry
 
-    def __str__(self):
-        return
-
     def display(self):
         super().display()
         print(f'Have Balcony : {self.balcony}\nLaundary: {self.laundry}')
 
+    @staticmethod
     def prompt_init():
+        valid_data = ('y','n')
         parent_init = Property.prompt_init()
-        balcony = input('Enter Balcony : ')
-        laundary = input('Enter laundary : ')
-        parent_init['Balcony'] = balcony 
-        parent_init['Laundary'] = laundary
-        #my_ap = Apartment(parent_init)
-        #return my_ap
+        validate_data = True
+
+        while validate_data == True:
+            
+            balcony = input('Enter Balcony (y/n) : ')
+            if balcony in valid_data:
+                laundary = input('Enter laundary (y/n) : ')
+                if laundary in valid_data:
+                    parent_init['Balcony'] = balcony 
+                    parent_init['Laundary'] = laundary
+                    validate_data = False
+                else:
+                    print("Invalid Input")
+
+            else:
+                print("Invalid Input")
+
         return parent_init

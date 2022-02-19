@@ -4,11 +4,25 @@ class Purchase:
 
 
     def display(self):
+        print(f'Purchase Info')
         print(f'Price : {self.price}')
-    
+        print("="*30)
+
     @staticmethod
     def prompt_init():
-        price = int(input('Enter Price : '))
         data = {}
-        data['Price'] = price
+        validate = True
+        
+        while validate == True:
+            
+            price = input('Enter Price : ')
+
+            if price.isnumeric():
+
+                data['Price'] = price
+                validate = False
+
+            else:
+                print("Invalid Input")
+                
         return data

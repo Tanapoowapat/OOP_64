@@ -19,12 +19,26 @@ class Property(object):
     @staticmethod
     def prompt_init():
         data = {}
-        square_feet = int(input('Enter Squre Feet : '))
-        num_bedroom = int(input('Enter Number of Bedroom : '))
-        num_bathroom = int(input('Enter Number of Bathroom : '))
 
-        data["Square Feet"] = square_feet
-        data["Number of Bedroom"] = num_bedroom
-        data["Number of Bathroom"] = num_bathroom
+        validate = True
+        while validate:
+
+            square_feet = (input('Enter Squre Feet : '))
+            if square_feet.isnumeric():
+                num_bedroom = (input('Enter Number of Bedroom : '))
+                if num_bedroom.isnumeric():
+                    num_bathroom = input('Enter Number of Bathroom : ')
+                    if num_bathroom.isnumeric():
+                        data["Square Feet"] = square_feet
+                        data["Number of Bedroom"] = num_bedroom
+                        data["Number of Bathroom"] = num_bathroom
+                        validate = False
+
+                    else:
+                        print('invalid Input')
+                else:
+                    print('Invalid Input')
+            else:
+                print("Invalid Input")
 
         return data
