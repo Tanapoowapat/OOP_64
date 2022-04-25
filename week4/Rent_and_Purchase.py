@@ -1,6 +1,6 @@
 from House import House
-from Rental import Rental
 from Apartment import Apartment
+from Rental import Rental
 from Purchase import Purchase
 class HouseRental(House, Rental):
     @staticmethod
@@ -16,9 +16,7 @@ class HousePurchase(House, Purchase):
     def prompt_init():
         house_init = House.prompt_init()
         Purchase_init = Purchase.prompt_init()
-
         house_purchase =  "HousePurchase", House(house_init["Square Feet"], house_init["Number of Bedroom"], house_init["Number of Bathroom"], house_init['Garage'], house_init['Fenced yard']), Purchase(Purchase_init['Price']) 
-        
         return house_purchase
         
 class ApartmentRent(Apartment, Rental):
@@ -34,7 +32,5 @@ class ApartmentPurchase(Apartment, Purchase):
     def prompt_init():
         apartment_init = Apartment.prompt_init()
         Purchase_init = Purchase.prompt_init()
-
         aparent_purchase =  "AparmentPurchase", Apartment(apartment_init["Square Feet"], apartment_init["Number of Bedroom"], apartment_init["Number of Bathroom"], apartment_init['Balcony'], apartment_init['Laundary']), Purchase(Purchase_init['Price'])
-
         return aparent_purchase

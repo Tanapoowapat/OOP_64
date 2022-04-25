@@ -1,4 +1,4 @@
-from Rent_and_Purchase import HouseRental , HousePurchase , ApartmentPurchase , ApartmentRent
+from Rent_and_Purchase import HouseRental, HousePurchase, ApartmentPurchase, ApartmentRent
 class Agent:
 
     def __init__(self, name):
