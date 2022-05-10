@@ -23,11 +23,18 @@ class Station(Search):
         return self.__packages_list
 
     def get_employee(self, employee_name):
-       if employee_name in Employee.All_Employee_list:
+        if employee_name in Employee.All_Employee_list:
            print(employee_name)
+    
+    def get_packages(self, packages):
+        if packages in packages.All_Packages_list:
+           print(packages)
 
     def search_packages(self, packges_id):
+        print('search packages call')
         for packges in self.packges_list:
             if packges.id == packges_id:
                 return super().search_packages(packges)
 
+station = Station('1', 'BKK01', 'SomeWhere')
+station.search_packages('1')
