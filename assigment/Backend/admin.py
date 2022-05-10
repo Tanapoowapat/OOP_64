@@ -55,10 +55,13 @@ admin = Admin('Tavan', '99999999', AccoutType.Admin,
 #Employee.All_Employee_list.append(Employee('jack', '12312314', '12313', 'emp01', '1234', AccoutType.Employee, AccoutStatus.Active))
 # admin.update_employee(1, AccoutStatus.Out)
 #
-# admin.creaate_employee('John', '12312314', '12313', 'emp01',
-#                        '1234', AccoutType.Employee, AccoutStatus.Active)
-# print(Employee.All_Employee_list)
+admin.creaate_employee('John', '12312314', '12313', 'emp01',
+                       '1234', AccoutType.Employee, AccoutStatus.Active)
 
-admin.create_station('test', 'test', 'somewhere')
-admin.create_station('test', 'test', 'somewhere')
-print(Station.All_station_list)
+
+for details in Employee.All_Employee_list:
+    print(details.fetch_details(details.uid))
+
+# admin.create_station('test', 'test', 'somewhere')
+# admin.create_station('test', 'test', 'somewhere')
+# print(Station.All_station_list)

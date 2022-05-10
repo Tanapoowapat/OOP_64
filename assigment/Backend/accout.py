@@ -35,8 +35,6 @@ class Person():
         self.__accout_type = accoutType
         self.__obj_accout = Accout(username, password, accoutStatus)
 
-
-    
     def get_status(self):
         status = self.__obj_accout.status 
         return status
@@ -44,7 +42,6 @@ class Person():
     @property
     def uid(self):
         return self.__uid
-
 
     @property
     def name(self):
