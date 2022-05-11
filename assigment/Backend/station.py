@@ -23,20 +23,46 @@ class Station(Search):
     def packages_list(self):
         return self.__packages_list
 
+    @property
+    def employee_list(self):
+        return self.__employee_list
     
-    def get_employee(self, employee_name):
-        employee = self.__employee_list
-        if employee_name in employee:
-           return employee
-    
-    def get_packages(self, packages):
-        self.packages_list.append(packages)
+    def add_employee(self, employee):
+        if employee in self.employee_list:
+            return False
+        else:
+            self.employee_list.append(employee)
+            return True
+
+    def get_employee(self):
+        pass
+
+
+
+
+    def add_packages(self, packages):
+        if len(self.packages_list) == 0:
+            self.packages_list.append(packages)
+            return True
+        for item in self.packages_list:
+            if item.id == packages.id:
+                return False
+            else:
+                self.packages_list.append(packages)
+                return True
 
     def search_packages(self, packges_id):
         print('search packages call')
         for packges in self.packges_list:
             if packges.id == packges_id:
                 return super().search_packages(packges)
+
+    @staticmethod
+    def get_station(station_id):
+        for station in Station.All_station_list:
+            if station_id == station.station_id:
+                return station
+
 
 # station = Station('1', 'BKK01', 'SomeWhere')
 # station.get_packages(Employee.create_package('1', 'somewhere', 'BIG', 'test', '18.00'))

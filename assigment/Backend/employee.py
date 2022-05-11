@@ -9,8 +9,11 @@ class Employee(Person):
     def __init__(self, name, phone, username, password, accoutType):
         super().__init__(name, phone, accoutType, username, password, accoutStatus=AccoutStatus.Active)
 
-    def fetch_details(self, uid):
-        return super().fetch_details(uid)
+    def fetch_details(self):
+        return super().fetch_details()
+
+    def login(self, username, password):
+        return super().login(username, password)
 
     @staticmethod
     def create_customer(C_id, name, phone):
@@ -22,10 +25,6 @@ class Employee(Person):
                     print("Already have Customer")
                 else:
                     Customer.All_Customer_list.append(Customer(C_id, name, phone, AccoutType.Customer))
-
-
-    def get_accout(self):
-        return self.get_accout()
 
     @staticmethod
     def sucess_packges(package):

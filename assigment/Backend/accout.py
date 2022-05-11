@@ -50,6 +50,10 @@ class Person():
         return self.__uid
 
     @property
+    def accout(self):
+        return self.__obj_accout
+
+    @property
     def name(self):
         return self.__name
 
@@ -57,15 +61,15 @@ class Person():
     def uid(self, new_id):
         self.__uid = new_id
 
-    def fetch_details(self, uid):
-        if uid == self.uid:
-            print(f'ID : {self.uid}')
-            print(f'Name : {self.__name}')
-            print(f'Phone : {self.__phone}')
-            print(f'Accout Type : {self.__accout_type}')
-            print(f'=====Accout Details=====')
-            print(f'{self.__obj_accout}')
-        else:
-            print("ID NotFound!")
+    def login(self, username, password):
+        if username == self.accout.username:
+            if 
+
+
+    def fetch_details(self):
+            self.username = self.accout.username
+            self.password = self.accout.password
+            self.status = self.accout.status
+            return self.uid, self.__name, self.__phone, self.username, self.password, self.__accout_type, self.status
 
 

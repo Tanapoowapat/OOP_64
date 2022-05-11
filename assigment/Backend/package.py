@@ -1,8 +1,6 @@
 from Backend.record_package import Record_Package
 from Backend.constants import *
 
-#fadlsfl;asdfl;sdlfp
-
 class Package:
     P_id = 1
     def __init__(self, id_customer, destination, station_id, size_type, package_status, time):
