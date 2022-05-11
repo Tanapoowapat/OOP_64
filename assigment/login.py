@@ -16,7 +16,9 @@ class Login:
         station = Station.get_station(station_id)
         for employee in station.employee_list:
             if employee.login(username, password):
-                print('something')   
+                return True
+            else:
+                return False
 
 
         # print(station)

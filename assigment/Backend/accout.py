@@ -63,7 +63,10 @@ class Person():
 
     def login(self, username, password):
         if username == self.accout.username:
-            if 
+            if password == self.accout.password:
+                return True
+        else:
+            return False
 
 
     def fetch_details(self):
