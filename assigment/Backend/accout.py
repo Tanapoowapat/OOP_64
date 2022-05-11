@@ -1,4 +1,4 @@
-from constants import Address, AccoutStatus, AccoutType
+from Backend.constants import Address, AccoutStatus, AccoutType
 
 class Accout:
 

@@ -1,7 +1,7 @@
-from constants import AccoutStatus, AccoutType
-from employee import Employee
-from accout import Person
-from station import Station
+from Backend.constants import AccoutStatus, AccoutType
+from Backend.employee import Employee
+from Backend.accout import Person
+from Backend.station import Station
 
 
 class Admin(Person):

@@ -1,7 +1,7 @@
-from accout import Person
-from customer import Customer
-from constants import *
-from package import Package
+from Backend.accout import Person
+from Backend.customer import Customer
+from Backend.constants import *
+from Backend.package import Package
 
 class Employee(Person):
     All_Employee_list = []
@@ -22,6 +22,10 @@ class Employee(Person):
                     print("Already have Customer")
                 else:
                     Customer.All_Customer_list.append(Customer(C_id, name, phone, AccoutType.Customer))
+
+
+    def get_accout(self):
+        return self.get_accout()
 
     @staticmethod
     def sucess_packges(package):
