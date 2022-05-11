@@ -1,4 +1,4 @@
-from constants import Address, AccoutStatus, AccoutType
+from Backend.constants import Address, AccoutStatus, AccoutType
 
 class Accout:
 
@@ -12,16 +12,16 @@ class Accout:
         return self.__password
 
     @property
+    def username(self):
+        return self.__username
+
+    @property
     def status(self):
         return self.__accout_status
 
     @status.setter
     def status(self, new_status):
         self.__accout_status = new_status
-
-    @password.setter
-    def reset_password(self, new_password):
-        pass
 
     def __str__(self):
         return f'Username: {self.__username}\nPassword: {self.password}\nStatus: {self.__accout_status}'
@@ -34,10 +34,16 @@ class Person():
         self.__phone = phone
         self.__accout_type = accoutType
         self.__obj_accout = Accout(username, password, accoutStatus)
+        Person.Auto_id += 1
 
-    def get_status(self):
+    @property
+    def status(self):
         status = self.__obj_accout.status 
         return status
+
+    @status.setter
+    def status (self, new_status):
+        self.__obj_accout.status = new_status
 
     @property
     def uid(self):

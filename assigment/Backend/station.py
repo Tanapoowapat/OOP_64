@@ -1,6 +1,6 @@
-from employee import Employee
-from search import Search
-from package import Package
+from Backend.employee import Employee
+from Backend.search import Search
+from Backend.package import Package
 
 class Station(Search):
     All_station_list = []
@@ -23,9 +23,11 @@ class Station(Search):
     def packages_list(self):
         return self.__packages_list
 
+    
     def get_employee(self, employee_name):
-        if employee_name in Employee.All_Employee_list:
-           print(employee_name)
+        employee = self.__employee_list
+        if employee_name in employee:
+           return employee
     
     def get_packages(self, packages):
         self.packages_list.append(packages)
@@ -36,10 +38,10 @@ class Station(Search):
             if packges.id == packges_id:
                 return super().search_packages(packges)
 
-station = Station('1', 'BKK01', 'SomeWhere')
-station.get_packages(Employee.create_package('1', 'somewhere', 'BIG', 'test', '18.00'))
-for package in station.packages_list:
-    package.fetch_details()
+# station = Station('1', 'BKK01', 'SomeWhere')
+# station.get_packages(Employee.create_package('1', 'somewhere', 'BIG', 'test', '18.00'))
+# for package in station.packages_list:
+#     package.fetch_details()
 
-#print(station.packages_list)
-#station.search_packages('1')
+# #print(station.packages_list)
+# #station.search_packages('1')
