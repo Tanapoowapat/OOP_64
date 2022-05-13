@@ -2,6 +2,7 @@ from Backend.accout import Person
 from Backend.customer import Customer
 from Backend.constants import *
 from Backend.package import Package
+import datetime
 
 class Employee(Person):
     All_Employee_list = []
@@ -9,33 +10,35 @@ class Employee(Person):
     def __init__(self, name, phone, username, password, accoutType):
         super().__init__(name, phone, accoutType, username, password, accoutStatus=AccoutStatus.Active)
 
-    def fetch_details(self, uid):
-        return super().fetch_details(uid)
+    def fetch_details(self):
+        return super().fetch_details()
 
     @staticmethod
-    def create_customer(C_id, name, phone):
+    def create_customer(c_id, name, phone, accoutType, username, password, accoutStatus):
         if len(Customer.All_Customer_list) == 0:
-            Customer.All_Customer_list.append(Customer(C_id, name, phone, AccoutType.Customer))
+            Customer.All_Customer_list.append(Customer(c_id, name, phone, accoutType, username, password, accoutStatus))
+            return True
         else:
-            for customer in Customer.All_Customer_list:
-                if customer.C_id == C_id:
-                    print("Already have Customer")
-                else:
-                    Customer.All_Customer_list.append(Customer(C_id, name, phone, AccoutType.Customer))
+            Customer.All_Customer_list.append(Customer(c_id, name, phone, accoutType, username, password, accoutStatus))
 
-
-    def get_accout(self):
-        return self.get_accout()
 
     @staticmethod
     def sucess_packges(package):
-        pass
+        Customer.recceive_Package(package)
+        return True
 
     @staticmethod
-    def update_package(package, new_station_id, new_status):
-        package.station_id = new_station_id
+    def update_package(package, new_station, new_status):
+        package.station_id = new_station
         package.status = new_status
-        return True
+        time = datetime.datetime.now()
+        package.record.save_record(package.id, package.id_cus, package.destination, package.size, package.status, time)
+        if package.status == PackgesStatus.Sucessfully:
+            print('bar')
+            Employee.sucess_packges(package)
+        else:
+            return package
+
 
 
     @staticmethod
