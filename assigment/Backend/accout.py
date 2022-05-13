@@ -61,14 +61,6 @@ class Person():
     def uid(self, new_id):
         self.__uid = new_id
 
-    def login(self, username, password):
-        if username == self.accout.username:
-            if password == self.accout.password:
-                return True
-        else:
-            return False
-
-
     def fetch_details(self):
             self.username = self.accout.username
             self.password = self.accout.password
